@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project2.MainPage">
+    <RelativeLayout>
+
+        <Label Text="Welcome to Your Companion" TextColor="Black" FontSize="Large" HorizontalOptions="Center"
+               RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.8}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.99}"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.1}"
+                         RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0}"></Label>
+
+        <Button Text="Drivers List" Clicked="toList" BackgroundColor="RosyBrown"
+                RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.1}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.5}"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.5}"
+                         RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.22}"></Button>
+        <Button Text="My Own List" Clicked="myList" BackgroundColor="RosyBrown"
+                RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.1}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.5}"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.34}"
+                         RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.22}"></Button>
+
+
+    </RelativeLayout>
+
+</ContentPage>

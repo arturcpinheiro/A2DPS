@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project2.myListPage">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <StackLayout Orientation="Vertical"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.4}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.99}"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.05}"
+                         RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0}">
+                <Label Text="My Drivers List" TextColor="Black" FontSize="45"  HorizontalOptions="Center"></Label>
+            </StackLayout>
+            
+            
+            <StackLayout Orientation="Vertical"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.6}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.99}"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.2}"
+                         RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0}">
+                <ListView x:Name="myDriverSource"
+                          ItemSelected="myDriverChoose"                                 
+                       Margin="10,10,10,10" 
+                          >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="{Binding fullName}" TextColor="Black" />
+                                        <Label Text="{Binding Id}"
+                                               TextColor="Black"
+                                             HorizontalOptions="EndAndExpand" />
+
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >                                        
+                                        <Label Text="Comment: "                                             
+                                                 TextColor="Black" />
+
+                                        <Label Text="{Binding comments}"
+                                                 VerticalOptions="EndAndExpand"
+                                                 TextColor="Black" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Delete"
+                                      CommandParameter="{Binding .}"
+                                      IsDestructive="True"
+                                      Clicked="deleteItem"/>
+                                </ViewCell.ContextActions>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout Orientation="Vertical"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.5}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0.99}"
+                         RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Height, Factor=0.05}"
+                         RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent, Property=Width, Factor=0}">
+                    <Label Text="Search specific Driver" TextColor="Black" FontSize="30"  HorizontalOptions="Center"></Label>
+                    <SearchBar SearchButtonPressed="searchBarBtn"
+                       TextChanged="SearchBarChange"
+                       Placeholder="DriverID"
+                       WidthRequest="320"/>
+                    
+                    <ListView x:Name="uniqueDriverSource"
+                          ItemSelected="myDriverChooseDriverType"                                 
+                       Margin="10,10,10,10" 
+                          >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="{Binding fullName}" TextColor="Black" />
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                <Label Text="DOB:"
+                                               TextColor="Black"
+                                              />
+                                            <Label Text="{Binding dateOfBirth}"
+                                               TextColor="Black"
+                                              />
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="Nationality: "                                             
+                                                 TextColor="Black" />
+
+                                            <Label Text="{Binding nationality}"
+                                                 VerticalOptions="EndAndExpand"
+                                                 TextColor="Black" />
+                                        </StackLayout>
+
+                                    </StackLayout>
+                             
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>           
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
